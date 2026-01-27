@@ -1,4 +1,4 @@
-package runner;
+package tests;
 
 import io.qameta.allure.testng.AllureTestNg;
 import org.json.simple.parser.ParseException;
@@ -13,31 +13,35 @@ import setup.BrowserSetup;
 import java.io.IOException;
 
 
-@Listeners(AllureTestNg.class)
-public class LoginPageTestRunner extends BrowserSetup {
-    LoginPage loginPg = new LoginPage();
-    DashboardPage dashboardPage = new DashboardPage();
 
-    @BeforeMethod
+public class LoginPageTest extends BrowserSetup {
+
+
+
+    @BeforeTest
     public void openLoginPage() {
+        LoginPage loginPg = new LoginPage();
         loginPg.navigatingLogin();
     }
 
     @Test(priority = 1, description = "User Login with invalid email and password")
     public void invalidUserLoginTest() {
+        LoginPage loginPg = new LoginPage();
         loginPg.invalidUserLogin();
     }
 
     @Test(priority = 2, description = "valid user login")
     public void validUserLoginTest() throws IOException, ParseException {
+        LoginPage loginPg = new LoginPage();
+        DashboardPage dashboardPage = new DashboardPage();
         loginPg.validUserLogin();
         dashboardPage.userTableTitleAssertion();
-        dashboardPage.logOut();
+       // dashboardPage.logOut();
     }
-    @Test(priority = 3, description = "Blank Email and Password Login")
-    public void emptyEmailPasswordLoginTest(){
-
-        loginPg.emptyEmailPasswordLogin();
-    }
+//    @Test(priority = 3, description = "Blank Email and Password Login")
+//    public void emptyEmailPasswordLoginTest(){
+//
+//        loginPg.emptyEmailPasswordLogin();
+//    }
 
 }

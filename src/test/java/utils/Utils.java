@@ -12,9 +12,9 @@ import java.io.IOException;
 public class Utils {
     static String usersLocation = "./src/test/resources/users.json";
 
-    public static String randomPhoneNumberGenerator() {
-        int min = 300000000;
-        int max = 999999999;
+    public static String randomPhoneNumberGenerator(int min,int max) {
+       // int min = 300000000;
+       // int max = 999999999;
         String randPhoneNumber = "01" + (int) (Math.random() * ((max - min) + 1));
 
         return randPhoneNumber;

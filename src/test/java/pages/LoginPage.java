@@ -31,20 +31,22 @@ public class LoginPage extends BasePage {
 
     }
 
-    public void validUserLogin() throws IOException, ParseException {
-        clickAndType(emailTextField, Utils.readingUserInformation(0, "email"));
-        clickAndType(passwordTextField, Utils.readingUserInformation(0, "password"));
-        loginBtn.click();
-        //
-    }
+
     public void invalidUserLogin(){
         clickAndType(emailTextField,Utils.randomEmailGenerator());
-        clickAndType(passwordTextField,Utils.randomPhoneNumberGenerator()); //using phone number as invalid password
+        clickAndType(passwordTextField,Utils.randomPhoneNumberGenerator(100000, 99999)); //using phone number as invalid password
         loginBtn.click();
         //Assert.assertEquals(invalidEmailPasswordAlertText.getText(),"Invalid email or password");
     }
     public void emptyEmailPasswordLogin(){
         loginBtn.click();
+    }
+    public void validUserLogin() throws IOException, ParseException {
+        clickAndType(emailTextField, Utils.readingUserInformation(0, "email").toString());
+        clickAndType(passwordTextField, Utils.readingUserInformation(0, "password").toString());
+        scrollDown(500);
+        loginBtn.click();
+        //
     }
 
 }

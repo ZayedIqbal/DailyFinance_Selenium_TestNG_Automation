@@ -37,16 +37,17 @@ public class RegistrationPage extends BasePage {
 
     public void navigatingToRegistrationPage() {
         BrowserSetup.getDriver().get("https://dailyfinance.roadtocareer.net/");
+        scrollDown(500);
         registrationLink.click();
     }
 
-    public void validRegistration() {
+    public void validRegistration() throws InterruptedException {
         Faker faker = new Faker();
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = Utils.randomEmailGenerator();
         String password = faker.internet().password(8, 20);
-        String phoneNumber = Utils.randomPhoneNumberGenerator();// calls with class name for  static method
+        String phoneNumber = Utils.randomPhoneNumberGenerator(300000000, 999999999);// calls with class name for  static method
         String address = faker.address().country();
         // Utils utils = new Utils();
         // firstNameTextField.sendKeys("Zayed Iqbal");
@@ -59,6 +60,7 @@ public class RegistrationPage extends BasePage {
         genderMaleRadioBtn.click();
         checkbox.click();
         registerBtn.click();
+        Thread.sleep(7000);
 
 
         Utils.savingInFile("./src/test/resources/users.json", "[]");
