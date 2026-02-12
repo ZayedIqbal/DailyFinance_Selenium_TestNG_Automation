@@ -3,6 +3,7 @@ package pages;
 import com.github.javafaker.Faker;
 import jdk.jshell.execution.Util;
 import org.json.simple.JSONObject;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,13 +32,13 @@ public class RegistrationPage extends BasePage {
     @FindBy(id = "register")
     WebElement registerBtn;
 
-    public RegistrationPage() {
-        PageFactory.initElements(BrowserSetup.getDriver(), this); //constructor for initiating all the dom of Registration
+    public RegistrationPage(WebDriver driver) {
+        PageFactory.initElements(driver,this); //constructor for initiating all the dom of Registration
     }
 
     public void navigatingToRegistrationPage() {
-        BrowserSetup.getDriver().get("https://dailyfinance.roadtocareer.net/");
-        scrollDown(500);
+       // BrowserSetup.getDriver().get("https://dailyfinance.roadtocareer.net/");
+        scrollDown(driver,500);
         registrationLink.click();
     }
 

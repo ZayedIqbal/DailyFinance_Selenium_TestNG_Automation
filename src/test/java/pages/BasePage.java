@@ -14,8 +14,9 @@ import static java.time.Duration.ofSeconds;
 //import static java.time.Duration.*;
 
 public class BasePage {
+    WebDriver driver;
     //WebDriver driver;
-    WebDriverWait wait = new WebDriverWait(BrowserSetup.getDriver(), ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(driver, ofSeconds(10));
 
 
     public void clickAndType(WebElement element, String text) {
@@ -24,9 +25,10 @@ public class BasePage {
         element.sendKeys(text);
     }
 
-    public void scrollDown(int pixels) {
-        JavascriptExecutor js = (JavascriptExecutor) BrowserSetup.getDriver();
-        js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
+    public static void scrollDown(WebDriver driver, int px){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, "+px+");");
     }
+
 
 }
