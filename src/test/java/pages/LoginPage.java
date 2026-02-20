@@ -1,11 +1,11 @@
 package pages;
 
 import org.json.simple.parser.ParseException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-import setup.BrowserSetup;
+import setup.Setup;
 import utils.Utils;
 
 import java.io.IOException;
@@ -22,14 +22,14 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//p[contains(text(),'Invalid email or password')]")
     WebElement invalidEmailPasswordAlertText;
 
-    public LoginPage() {
-        PageFactory.initElements(BrowserSetup.getDriver(), this);
+    public LoginPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
     }
 
-    public void navigatingLogin() {
-        BrowserSetup.getDriver().get("https://dailyfinance.roadtocareer.net/");
-
-    }
+//    public void navigatingLogin() {
+//        driver.get("https://dailyfinance.roadtocareer.net/");
+//
+//    }
 
 
     public void invalidUserLogin(){
@@ -44,7 +44,7 @@ public class LoginPage extends BasePage {
     public void validUserLogin() throws IOException, ParseException {
         clickAndType(emailTextField, Utils.readingUserInformation(0, "email").toString());
         clickAndType(passwordTextField, Utils.readingUserInformation(0, "password").toString());
-        scrollDown(500);
+        //scrollDown(500);
         loginBtn.click();
         //
     }

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import setup.BrowserSetup;
+import setup.Setup;
 import utils.Utils;
 
 public class DashboardPage extends BasePage {
@@ -29,6 +29,7 @@ public class DashboardPage extends BasePage {
 
     public DashboardPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
+        this.driver = driver;
     }
 
     public void userTableTitleAssertion() {
@@ -43,12 +44,14 @@ public class DashboardPage extends BasePage {
     public void addItem() throws InterruptedException {
         Faker faker = new Faker();
         addCostButton.click();
-        clickAndType(itemNameTextField, faker.food().fruit());
-        clickAndType(amountField, Utils.randomPhoneNumberGenerator(1, 100));
-        scrollDown(500);
+//        clickAndType(itemNameTextField, faker.food().fruit());
+//        clickAndType(amountField, Utils.randomPhoneNumberGenerator(1, 100));
+        itemNameTextField.sendKeys(faker.food().fruit());
+        amountField.sendKeys(Utils.randomPhoneNumberGenerator(1, 100));
+        scrollDown(driver, 500);
         submitButton.click();
         Thread.sleep(2000); //wait for clicking alert
-        // using driver from any class BrowserSetup.getDriver()
-        BrowserSetup.getDriver().switchTo().alert().accept();
+        // using driver from any class
+        driver.switchTo().alert().accept();
     }
 }
