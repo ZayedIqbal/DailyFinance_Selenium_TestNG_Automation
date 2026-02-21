@@ -15,7 +15,7 @@ public class RegistrationTest extends Setup {
 //        // Assert.assertEquals();
 //    }
 
-    @Test(priority = 1, description = "Valid User Registration")
+    @Test(priority = 1, description = "Verify Valid User Registration")
     public void validUserRegistration() throws InterruptedException {
         RegistrationPage registrationPage = new RegistrationPage(driver);
         driver.findElement(By.cssSelector("[href = '/register']")).click();

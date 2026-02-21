@@ -20,7 +20,7 @@ public class DashboardTest extends Setup {
         login.validUserLogin();
     }
 
-    @Test(priority = 1, description = "Add item test")
+    @Test(priority = 1, description = "Verify successful add item test")
     public void addItemTest() throws InterruptedException {
         DashboardPage dashboardPage = new DashboardPage(driver);
         dashboardPage.addItem();

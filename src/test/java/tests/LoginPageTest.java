@@ -20,14 +20,14 @@ public class LoginPageTest extends Setup {
 //        loginPg.navigatingLogin();
 //    }
 
-    @Test(priority = 1, description = "User Login with invalid email and password")
+    @Test(priority = 1, description = "Verify user login with invalid credential")
     public void invalidUserLoginTest() {
         LoginPage loginPg = new LoginPage(driver);
         loginPg.invalidUserLogin();
 
     }
 
-    @Test(priority = 2, description = "valid user login")
+    @Test(priority = 2, description = "Verify user login with valid credential")
     public void validUserLoginTest() throws IOException, ParseException {
         LoginPage loginPg = new LoginPage(driver);
        // DashboardPage dashboardPage = new DashboardPage(WebDriver driver);
