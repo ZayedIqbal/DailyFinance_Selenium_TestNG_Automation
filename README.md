@@ -168,19 +168,8 @@ allure serve allure-results
 
 ## 📸 Allure Report Preview
 
-Add your screenshot inside:
-
-```
-docs/allure-report.png
-```
-
-Then include:
-
-```markdown
-## 📊 Allure Report Preview
-![Allure Report](docs/allure-report.png)
-```
-
+![Allure Report 1](https://github.com/ZayedIqbal/DailyFinance_Selenium_TestNG_Automation/blob/f4de66b10c4895283f40f9e53bde50188db4ae7d/allure-reportss1.png)
+![Allure Report 2](https://github.com/ZayedIqbal/DailyFinance_Selenium_TestNG_Automation/blob/687ed34421dbdb44177f9f1faf1328ab0c9d29df/allure-reportss2.png)
 ---
 
 ## 🏗 Engineering Highlights
