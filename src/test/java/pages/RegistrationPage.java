@@ -59,7 +59,7 @@ public class RegistrationPage extends BasePage {
         genderMaleRadioBtn.click();
         checkbox.click();
         registerBtn.click();
-        Thread.sleep(7000);
+        Thread.sleep(5000);
 
 
         Utils.savingInFile("./src/test/resources/users.json", "[]");

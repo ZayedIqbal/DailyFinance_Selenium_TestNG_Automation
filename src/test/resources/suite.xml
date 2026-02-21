@@ -17,4 +17,10 @@
         </classes>
     </test>
 
+<test name="Admin login test">
+<classes>
+    <class name="tests.AdminLogin"></class>
+</classes>
+</test>
+
 </suite>
